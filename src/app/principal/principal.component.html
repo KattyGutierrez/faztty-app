@@ -1,0 +1,53 @@
+<nav class="navbar navbar-light navbar-expand-md sticky-top" id="heather">
+    <div class="container-fluid"><a class="navbar-brand" href="#"><img src="../assets/img/LOGO%20HORIZONTAL.png?h=fba87b00e4e192f60693cbda6ab210ef"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1" style="height: 70;">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" id="user" href="producto_vendedor.html" style="height: 70;"><i class="fa fa-shopping-cart" id="vender" style="width: 50;height: 50;color: #641fa3;"></i></a></li>
+                <li class="nav-item" id="user"><a class="nav-link" href="#" style="height: 70;color: #641fa3;">Usuario&nbsp;<i class="fa fa-user-circle" style="width: 50;height: 50;"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div id="Cuerpo">
+    <div id="wrapper">
+        <div id="sidebar-wrapper" style="background: #674172;">
+        <div class="col-md-4" >
+           
+            <ul class="sidebar-nav" >
+                <li class="sidebar-brand"> <a style="font-size: 18px;color: #dcdcdc;text-align: left;">Tipos de Negocios</a></li>
+                <li *ngFor="let tipo of tipoNegocio"> <a role="button" (click)="click(tipo.id)" style="color: #dcdcdc;" >{{tipo.nombre}}</a></li>
+
+            </ul>
+   
+        </div>
+        </div>
+        <div class="page-content-wrapper">
+            <div class="container-fluid"><button class="btn" id="menu-toggle" type="button"><i class="fa fa-bars"></i>&nbsp;Tipo de Negocio</button>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <h1 class="text-center">{{singleTipo.nombre}}</h1>
+                        </div>
+                        <p class="text-center"><em>Apoya y forma parte de este gran cambio!</em></p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row text-center justify-content-center" id="row_tienda" style="margin: 5px;" >
+                    <div class="col-md-4 col-lg-3 col-xl-3 offset-lg-0 text-center"  *ngFor="let negocio of negocios" data-aos="zoom-in" data-aos-duration="400" id="columna_1" style="border-radius: 20px;background: #f1e7fe;margin: 10px;">
+                        <img class="rounded img-fluid border" id="imagen_tienda_P" style="width: 287px;border-radius: 25px;" th:src="@{'/img/' + ${negocio.imagen}}">
+                        <label class="text-center" id="nombre_tienda" style="margin: 0px 0px 8px ;padding: 0px;" >{{negocio.nombre}}</label>
+                        <div class="row" >
+                            <div class="col"><label class="col-form-label" style="text-align: center;" >{{negocio.tipoNegocio.nombre}}</label></div>
+                            <div class="col-lg-12"><label class="col-form-label" >{{negocio.direccion}}</label></div>
+                            <div class="col text-center"><label class="col-form-label" >{{negocio.puntuacion}}</label></div>
+                            <div class="col-xl-12 text-center"><a class="btn btn-primary" role="button" (click)="ver(negocio.id)">Ver</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div></div>
+            <app-footer></app-footer>
+        </div>
+    </div>
+

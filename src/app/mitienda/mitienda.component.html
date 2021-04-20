@@ -1,0 +1,64 @@
+<nav class="navbar navbar-light navbar-expand-md" id="heather">
+    <div class="container-fluid"><a class="navbar-brand" href="#"><img src="../assets/img/LOGO%20HORIZONTAL.png?h=fba87b00e4e192f60693cbda6ab210ef"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1" style="height: 70;">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" id="user" href="producto_cliente.html" style="height: 70;"><i class="material-icons" id="vender" style="width: 50;height: 50;color: #641fa3;">store_mall_directory</i></a></li>
+                <li class="nav-item" id="user"><a class="nav-link" href="#" style="height: 70;color: #641fa3;">Usuario&nbsp;<i class="fa fa-user-circle" style="width: 50;height: 50;"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div>
+    <div class="row">
+        <div class="col">
+            <h2 class="text-center" id="prod"><label id="nombre_negocio" >{{negocio.nombre}}</label>:&nbsp;Productos</h2>
+        </div>
+        <div class="col text-center" id="filtro_cat">
+            <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-toggle="dropdown" id="bt_cat" type="button">Categoría</button>
+                <div class="dropdown-menu"><div *ngFor="let categoria of categorias"><a class="dropdown-item" role="button" (click)="click(categoria.id)">{{categoria.nombre}}</a></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="container">
+        <div class="row" id="row_product">
+            <div class="col-md-4 text-center" id="colum_1" *ngFor="let producto of productos">
+                <img class="img-fluid" id="imagen_tienda" th:src="@{'/img/' + ${producto.imagen}}">
+                <label class="text-center" id="nombre_producto">{{producto.nombre}}</label>
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <h4>Marca</h4>
+                    </div>
+                    <div class="col-6"><label class="col-form-label">{{producto.marca}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <h4>Categoría</h4>
+                    </div>
+                    <div class="col-6"><label class="col-form-label" >{{producto.categoria.nombre}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <h4>Precio</h4>
+                    </div>
+                    <div class="col-6"><label class="col-form-label">S/.&nbsp;</label><label class="col-form-label">{{producto.precio}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <h4 class="text-left">Puntuación</h4>
+                    </div>
+                    <div class="col-6"><label class="col-form-label" >{{producto.puntuacion}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col text-right"><button class="btn btn-primary" id="bt_editar" type="button">Editar</button></div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 text-center" id="colum_agregar"><a id="add_product" href="#"><i class="fas fa-cart-plus" id="add_p_icon" style="color: #c392f0;"></i>
+                    <h2 class="text-center" style="color: var(--gray);">Agregar Producto</h2>
+                </a></div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
