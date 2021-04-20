@@ -11,7 +11,7 @@ import {NegocioService} from '../services/negocio.service';
 })
 export class MitiendaComponent implements OnInit {
 
-  negocio_id : any;
+  negocio_id : any = 3;
   categoria_id: any;
   productos : Producto [] = [];
   negocio: Negocio = null;
@@ -20,7 +20,7 @@ export class MitiendaComponent implements OnInit {
   constructor(private negocioService: NegocioService) { }
 
   ngOnInit(): void {
-    this.negocio_id = localStorage.getItem("negocio");
+    localStorage.setItem("negocio", this.negocio_id);
     console.log("negocio_id: "+this.negocio_id);
     this.obtenerNegocioById();
     this.obtenerProductos();
@@ -50,6 +50,9 @@ export class MitiendaComponent implements OnInit {
     this.categoria_id=categoria_id;
     this.obtenerProductosCategoria();
 
+  }
+  calculaSrc(imagen: any): any{
+    return '../assets/img/'+imagen;
   }
 
 }

@@ -51,5 +51,9 @@ export class ProductoComponent implements OnInit {
     this.obtenerProductosCategoria();
 
   }
+  calculaSrc(imagen: any): any{
+    return '../assets/img/'+imagen;
+  }
+  
 
 }

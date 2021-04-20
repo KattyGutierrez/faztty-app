@@ -2,7 +2,10 @@ import { TipoNegocio } from "./tipo-negocio";
 
 export class Negocio {
     id : any;
-    RUC: any;
+    username : any;
+    email : any;
+    password: any;
+    ruc: any;
     nombre: any;
     puntuacion: any;
     imagen: any;

@@ -12,10 +12,10 @@ import { Router } from '@angular/router';
 export class PrincipalComponent implements OnInit {
 
   user: any; 
-  tipoNegocio: TipoNegocio[] = [];
-  singleTipo: TipoNegocio = null;
+  tipoNegocio: TipoNegocio[]=[{id: 0, nombre: 'nombre', descripcion: 'descripcion'}];
+  singleTipo: TipoNegocio = {id: 0, nombre: 'nombre', descripcion: 'descripcion'} ;
   singleTipoId: number = 1;
-  negocios: Negocio[] = [];
+  negocios: Negocio[];
   constructor(private tipoNegocioService: TipoNegocioService,
     private negocioService: NegocioService,
     private router: Router) {}
@@ -51,5 +51,10 @@ export class PrincipalComponent implements OnInit {
     this.router.navigate(['productos']);
     
   }
+
+  calculaSrc(imagen: any): any{
+    return '../assets/img/'+imagen;
+  }
+
 
 }
