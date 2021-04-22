@@ -37,7 +37,7 @@
                 <div class="row text-center justify-content-center" id="row_tienda" style="margin: 5px;">
                     <div class="col-md-4 col-lg-3 col-xl-3 offset-lg-0 text-center" *ngFor="let negocio of negocios" data-aos="zoom-in" data-aos-duration="400" id="columna_1" style="border-radius: 20px;background: #f1e7fe;margin: 10px;">
                         <img class="rounded img-fluid border" id="imagen_tienda_P" style="width: 287px;border-radius: 25px;" [src]="calculaSrc(negocio.imagen)">
-                        <label class="text-center " id="nombre_tienda " style="margin: 0px 0px 8px ;padding: 0px; ">{{negocio.nombre}}</label>calculaSrc
+                        <label class="text-center " id="nombre_tienda " style="margin: 0px 0px 8px ;padding: 0px; ">{{negocio.nombre}}</label>
                         <div class="row ">
                             <div class="col "><label class="col-form-label " style="text-align: center; ">{{negocio.tipoNegocio.nombre}}</label></div>
                             <div class="col-lg-12 "><label class="col-form-label ">{{negocio.direccion}}</label></div>

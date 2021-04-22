@@ -7,7 +7,7 @@ export const TIPOSNEGOCIO: TipoNegocio[] = [
    { id : 2, nombre: 'nombre 2', descripcion: 'descripcion 2'}
 ];
 export const TIPONEGOCIO: TipoNegocio = 
-   { id : 1, nombre: 'nombre 1', descripcion: 'descripcion 1'};
+   { id : 0, nombre: '', descripcion: ''};
 
   /* export const NEGOCIOS: Negocio[] = [
       { id: 1, RUC : 1, nombre: 'negocio 1', puntuacion: 3, imagen: 'aaa1', direccion: 'direccion 1', tipoNegocio:{ id : 1, nombre: 'nombre 1', descripcion: 'descripcion 1'}},
@@ -37,3 +37,6 @@ export const TIPONEGOCIO: TipoNegocio =
      /* export const PRODUCTOS_CATEGORIA: Producto[] = [
          { id: 2, nombre: 'producto 2', marca: 'marca 2', precio: 2, puntuacion: 2, imagen: 'pp2', negocio: NEGOCIO, categoria: {id: 2, nombre: 'catego 2', descripcion:'descr 2'} }
       ]; */
+
+      export const NEGOCIO: Negocio = 
+      { id: 0, username: '', email: '', password:'', ruc : '', nombre: '', puntuacion: 0, imagen: '', direccion: '', tipoNegocio:{ id : 0, nombre: '', descripcion: ''}};

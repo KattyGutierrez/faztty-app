@@ -3,6 +3,7 @@ import { Categoria } from '../models/categoria';
 import { Negocio } from '../models/negocio';
 import {  Producto} from '../models/producto';
 import {NegocioService} from '../services/negocio.service';
+import {  NEGOCIO} from '../models/tipo-negocio.json';
 
 @Component({
   selector: 'app-mitienda',
@@ -13,8 +14,8 @@ export class MitiendaComponent implements OnInit {
 
   negocio_id : any = 3;
   categoria_id: any;
-  productos : Producto [] = [];
-  negocio: Negocio = null;
+  productos : Producto [];
+  negocio: Negocio = NEGOCIO;
   categorias: Categoria [];
 
   constructor(private negocioService: NegocioService) { }

@@ -4,6 +4,8 @@ import {Negocio} from '../models/negocio';
 import {NegocioService} from '../services/negocio.service';
 import {TipoNegocioService} from '../services/tipo-negocio.service';
 import { Router } from '@angular/router';
+import { TIPONEGOCIO} from '../models/tipo-negocio.json';
+
 
 @Component({
   selector: 'app-principal',
@@ -12,22 +14,30 @@ import { Router } from '@angular/router';
 export class PrincipalComponent implements OnInit {
 
   user: any; 
-  tipoNegocio: TipoNegocio[]=[{id: 0, nombre: 'nombre', descripcion: 'descripcion'}];
-  singleTipo: TipoNegocio = {id: 0, nombre: 'nombre', descripcion: 'descripcion'} ;
+  tipoNegocio: TipoNegocio[];
+  singleTipo: TipoNegocio =  TIPONEGOCIO ;
   singleTipoId: number = 1;
   negocios: Negocio[];
   constructor(private tipoNegocioService: TipoNegocioService,
     private negocioService: NegocioService,
-    private router: Router) {}
+    private router: Router) {
+      
+
+    }
 
 
   ngOnInit(): void {
     this.user = localStorage.getItem("user");
+    this.obtenerTipos();
+    this.obtenerTipo();
+    this.obtenerNegocio(); 
+  }
+
+  obtenerTipos(): void{
     this.tipoNegocioService.getTipoNegocio().subscribe(
       tipoNegocio => this.tipoNegocio = tipoNegocio
     )
-    this.obtenerTipo();
-    this.obtenerNegocio(); 
+
   }
 
   obtenerTipo(): void{

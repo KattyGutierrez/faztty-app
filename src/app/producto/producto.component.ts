@@ -3,6 +3,7 @@ import { Categoria } from '../models/categoria';
 import { Negocio } from '../models/negocio';
 import {  Producto} from '../models/producto';
 import {NegocioService} from '../services/negocio.service';
+import {  NEGOCIO} from '../models/tipo-negocio.json';
 
 @Component({
   selector: 'app-producto',
@@ -13,14 +14,14 @@ export class ProductoComponent implements OnInit {
 
   negocio_id : any;
   categoria_id: any;
-  productos : Producto [] = [];
-  negocio: Negocio = null;
-  categorias: Categoria [];
-  constructor(private negocioService: NegocioService) { }
+  productos : Producto [];
+  negocio: Negocio = NEGOCIO ;
+  
+  categorias: Categoria []= [];
+  constructor(private negocioService: NegocioService) {}
 
   ngOnInit(): void {
     this.negocio_id = localStorage.getItem("negocio");
-    console.log("negocio_id: "+this.negocio_id);
     this.obtenerNegocioById();
     this.obtenerProductos();
     this.obtenerCategorias();
@@ -32,9 +33,12 @@ export class ProductoComponent implements OnInit {
     )
   }
   obtenerProductos(): void{
+
+    console.log("Negociooooo: "+this.negocio_id);
     this.negocioService.getProductos(this.negocio_id).subscribe(
       productos => this.productos = productos
     )
+    console.log(this.productos);
   }
   obtenerCategorias(): void{
     this.negocioService.getCategorias().subscribe(
