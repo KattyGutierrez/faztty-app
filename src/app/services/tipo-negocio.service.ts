@@ -12,8 +12,8 @@ import {map} from 'rxjs/operators';
 export class TipoNegocioService {
 
 
-  private urlEndPoint:string = 'http://faztty-back.herokuapp.com/faztty-ms/';
-
+  //private urlEndPoint:string = 'http://faztty-back.herokuapp.com/faztty-ms/';
+  private urlEndPoint:string = 'http://localhost:8010/faztty-ms/';
   constructor(private http: HttpClient) { }
 
   getTipoNegocio(): Observable <TipoNegocio []>{

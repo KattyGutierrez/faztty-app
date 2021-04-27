@@ -1,4 +1,4 @@
-<div class="card bg-dark text-white">
+<!--<div class="card bg-dark text-white">
     <div class="card-header">Titulo</div>
     <div class="card-body">
 
@@ -7,24 +7,34 @@
                 <div class="col-sm">
                     <div class="input-group">
                         <div class="custom-file">
-                          <input (change)="seleccionarFoto($event)" type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
-                          <label class="custom-file-label" for="inputGroupFile04">Seleccionar foto</label>
+                            <input (change)="seleccionarFoto($event)" type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+                            <label class="custom-file-label" for="inputGroupFile04">Seleccionar foto</label>
                         </div>
                         <div class="input-group-append">
-                          <button (click)="subirFoto()" [disabled]="!foto" class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Subir</button>
+                            <button (click)="subirFoto()" [disabled]="!foto" class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Subir</button>
                         </div>
-                      </div>
+                    </div>
 
 
                 </div>
                 <div class="col-sm">
-                    <img *ngIf="producto?.imagen" src="" class="img-thumbnail rounded">
+                    <img *ngIf="producto?.imagen" [src]="nombre_foto" class="img-thumbnail rounded">
 
                 </div>
             </div>
 
 
         </div>
-        
+
+    </div>
+</div>-->
+
+<img class="rounded img-fluid" id="foto_prod_nuev" [src]="nombre_foto">
+<div class="row">
+    <div class="col text-center" style="padding: 10px 15px;">
+        <div class="custom-file">
+            <input (change)="seleccionarFoto($event)" type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+            <label id="bt_aniadir_img" style="background: rgb(195,146,240);color: rgb(28,27,27);border-style: none;" class="custom-file-label" for="inputGroupFile04">Seleccionar foto</label>
+        </div>
     </div>
 </div>

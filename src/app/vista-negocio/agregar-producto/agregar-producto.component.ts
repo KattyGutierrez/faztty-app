@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Categoria } from 'src/app/models/categoria';
 import { Producto } from 'src/app/models/producto';
 import { NegocioService } from 'src/app/services/negocio.service';
+import { UploadProductoComponent } from 'src/app/upload-producto/upload-producto.component';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,6 +13,8 @@ import Swal from 'sweetalert2';
 })
 export class AgregarProductoComponent implements OnInit {
 
+  @ViewChild(UploadProductoComponent) hijo: UploadProductoComponent;
+
   user: any;
   cat_selected: any= 'Elegir';
   producto: Producto = new Producto();
@@ -20,6 +23,7 @@ export class AgregarProductoComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = localStorage.getItem("user");
+    localStorage.setItem("producto",'0');
   }
   ngAfterContentInit(): void{
     this.obtenerCategorias(); 
@@ -39,6 +43,7 @@ export class AgregarProductoComponent implements OnInit {
         })
         this.router.navigate(['mitienda/productos']);
         console.log(producto);
+        this.hijo.subirFoto(producto.id);
 
       }
       
@@ -55,6 +60,8 @@ export class AgregarProductoComponent implements OnInit {
     this.cat_selected = name;
 
   }
+
+  
 
 
 }

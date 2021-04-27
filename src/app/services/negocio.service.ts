@@ -6,6 +6,7 @@ import { Categoria } from '../models/categoria';
 import {Observable, of} from 'rxjs';
 import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import { Foto } from '../models/foto';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,8 @@ import {map} from 'rxjs/operators';
 export class NegocioService {
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
-  private urlEndPoint:string = 'http://faztty-back.herokuapp.com/faztty-ms/';
-
+  //private urlEndPoint:string = 'http://faztty-back.herokuapp.com/faztty-ms/';
+  private urlEndPoint:string = 'http://localhost:8010/faztty-ms/';
   constructor(private http: HttpClient) { }
 
 
@@ -65,8 +66,12 @@ export class NegocioService {
   subirFotoProducto(archivo: File, id): Observable<Producto>{
     let formData = new FormData();
     formData.append("archivo", archivo);
-    formData.append("id", id);
+    formData.append("producto_id", id);
     return this.http.post<Producto>(this.urlEndPoint+'uploadFotoProducto', formData);
+  }
+
+  descargarFotoProducto(id): Observable<Foto>{
+    return this.http.get<Foto>(this.urlEndPoint+'downloadFotoProducto/'+id);
   }
 
 }

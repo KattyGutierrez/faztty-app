@@ -5,6 +5,7 @@ import {  Producto} from '../../models/producto';
 import {NegocioService} from '../../services/negocio.service';
 import {  NEGOCIO} from '../../models/tipo-negocio.json';
 import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-mitienda',
@@ -20,7 +21,7 @@ export class MitiendaComponent implements OnInit {
   negocio: Negocio = NEGOCIO;
   categorias: Categoria [];
 
-  constructor(private negocioService: NegocioService, private router: Router) { }
+  constructor(private negocioService: NegocioService, private router: Router,private _sanitizer : DomSanitizer) { }
 
   ngOnInit(): void {
     this.user = localStorage.getItem("user");
@@ -58,8 +59,13 @@ export class MitiendaComponent implements OnInit {
     this.obtenerProductosCategoria();
 
   }
-  calculaSrc(imagen: any): any{
-    return '../assets/img/'+imagen;
+  calculaSrc(id: any): any{
+    this.negocioService.descargarFotoProducto(id).subscribe(
+      foto => { 
+        return this._sanitizer.bypassSecurityTrustResourceUrl('data:imagen/jpg;base64,'+foto.foto);
+      }
+    )
+   // return "../assets/img/producto.png";
   }
 
   editar(producto_id: any): void{
@@ -67,5 +73,6 @@ export class MitiendaComponent implements OnInit {
     this.router.navigate(['mitienda/modificarProducto']);
 
   }
+
 
 }

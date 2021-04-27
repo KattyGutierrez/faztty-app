@@ -46,7 +46,7 @@ const routes: Routes = [
   ]},
   {path: 'registrarCliente', component: RegistrarClienteComponent},
   {path: 'registrarNegocio', component: RegistrarNegocioComponent},
-  {path: 'upload', component: UploadProductoComponent},
+  //{path: 'upload', component: UploadProductoComponent},
  
 
 
