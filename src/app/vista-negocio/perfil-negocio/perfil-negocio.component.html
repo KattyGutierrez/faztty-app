@@ -43,9 +43,9 @@
                         <h4 class="text-left">Descripción:</h4>
                     </div>
                     <div class="col-6"><label class="col-form-label">{{negocio.tipoNegocio.descripcion}}</label></div>
-                </div>
+                </div>  
             </div>
-            <div class="col-md-4 text-center" id="colum_2"><img class="rounded img-fluid" id="foto_n"></div>
+            <div class="col-md-4 text-center" id="colum_2"><img class="rounded img-fluid" id="foto_n" [src]="calcularSrc(negocio.imagen)"></div>
         </div>
         <div class="row">
             <div class="col text-right"><button class="btn btn-primary" id="bt_editar" type="button">Editar</button></div>

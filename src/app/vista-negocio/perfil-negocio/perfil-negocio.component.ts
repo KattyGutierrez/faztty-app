@@ -25,5 +25,8 @@ export class PerfilNegocioComponent implements OnInit {
       negocio => this.negocio = negocio
     )
   }
+  calcularSrc(imagen: any): any{
+    return '../../../assets/img/'+imagen;
+  }
 
 }
