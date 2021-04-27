@@ -10,7 +10,7 @@ import { UsuarioService } from '../services/usuario.service';
   selector: 'app-login',
   templateUrl: './login.component.html',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./login.component.css', '../../../assets/css/styles.css']
+  styleUrls: ['./login.component.css', '../../assets/css/styles.css']
 })
 export class LoginComponent implements OnInit {
 

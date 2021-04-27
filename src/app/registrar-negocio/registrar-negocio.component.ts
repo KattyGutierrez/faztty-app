@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-registrar-negocio',
   templateUrl: './registrar-negocio.component.html',
-  styleUrls: ['./registrar-negocio.component.css', '../../../assets/css/styles1.css']
+  styleUrls: ['./registrar-negocio.component.css', '../../assets/css/styles1.css']
 })
 export class RegistrarNegocioComponent implements OnInit {
 
@@ -24,6 +24,7 @@ export class RegistrarNegocioComponent implements OnInit {
   }
 
   public insertarNegocio():void{
+    this.negocio.imagen="tienda.png"
     this.negocioService.insertarNegocio(this.negocio).subscribe(
       negocio => {
         //swal.fire('Nuevo negocio',`${negocio.username}`,'success')

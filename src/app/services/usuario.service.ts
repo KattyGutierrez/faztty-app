@@ -14,8 +14,8 @@ export class UsuarioService {
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
 
-  //private urlEndPoint:string = 'http://faztty-back.herokuapp.com/faztty-ms/';
-  private urlEndPoint:string = 'http://localhost:8010/faztty-ms/';
+  private urlEndPoint:string = 'http://faztty-back.herokuapp.com/faztty-ms/';
+  //private urlEndPoint:string = 'http://localhost:8010/faztty-ms/';
   
   constructor(private http: HttpClient) { }
 

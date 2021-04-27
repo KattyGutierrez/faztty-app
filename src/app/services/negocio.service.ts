@@ -14,8 +14,8 @@ import { Foto } from '../models/foto';
 export class NegocioService {
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
-  //private urlEndPoint:string = 'http://faztty-back.herokuapp.com/faztty-ms/';
-  private urlEndPoint:string = 'http://localhost:8010/faztty-ms/';
+  private urlEndPoint:string = 'http://faztty-back.herokuapp.com/faztty-ms/';
+  //private urlEndPoint:string = 'http://localhost:8010/faztty-ms/';
   constructor(private http: HttpClient) { }
 
 
@@ -36,6 +36,7 @@ export class NegocioService {
     console.log(id);
     //return of(PRODUCTOS);
     return this.http.get<Producto []>(this.urlEndPoint+'productosByNegocio/'+id);
+  
   }
   getCategorias(): Observable <Categoria []>{
     //return of(CATEGORIAS);

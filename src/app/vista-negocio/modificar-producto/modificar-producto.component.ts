@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import {Router, ActivatedRoute} from '@angular/router';
 import { NegocioService } from 'src/app/services/negocio.service';
 import { Categoria } from 'src/app/models/categoria';
 import Swal from 'sweetalert2';
+import { UploadProductoComponent } from 'src/app/upload-producto/upload-producto.component';
 
 @Component({
   selector: 'app-modificar-producto',
@@ -11,6 +12,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./modificar-producto.component.css', '../../../assets/css/styles2.css']
 })
 export class ModificarProductoComponent implements OnInit {
+
+  @ViewChild(UploadProductoComponent) hijo: UploadProductoComponent;
 
   cat_selected: any= 'Elegir';
   producto_id: any;
@@ -59,6 +62,8 @@ export class ModificarProductoComponent implements OnInit {
         })
         this.router.navigate(['mitienda/productos']);
         console.log(producto);
+        this.hijo.subirFoto(producto.id);
+
 
       }
       

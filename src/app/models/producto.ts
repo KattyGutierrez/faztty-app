@@ -12,4 +12,5 @@ export class Producto {
     categoria: Categoria;
     catid: any;
     imagen_blob: any;
+    imagen_ruta: any;
 }

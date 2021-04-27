@@ -4,6 +4,7 @@ import { Negocio } from '../../models/negocio';
 import {  Producto} from '../../models/producto';
 import {NegocioService} from '../../services/negocio.service';
 import {  NEGOCIO} from '../../models/tipo-negocio.json';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-producto',
@@ -18,7 +19,7 @@ export class ProductoComponent implements OnInit {
   negocio: Negocio = NEGOCIO ;
   
   categorias: Categoria []= [];
-  constructor(private negocioService: NegocioService) {}
+  constructor(private negocioService: NegocioService, public _sanitizer : DomSanitizer) {}
 
   ngOnInit(): void {
     this.negocio_id = localStorage.getItem("negocio");
@@ -37,8 +38,9 @@ export class ProductoComponent implements OnInit {
     console.log("Negociooooo: "+this.negocio_id);
     this.negocioService.getProductos(this.negocio_id).subscribe(
       productos => this.productos = productos
+   
+      
     )
-    console.log(this.productos);
   }
   obtenerCategorias(): void{
     this.negocioService.getCategorias().subscribe(

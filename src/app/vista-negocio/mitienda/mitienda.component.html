@@ -15,8 +15,8 @@
 <div>
     <div class="container">
         <div class="row" id="row_product">
-            <div class="col-md-4 text-center" id="colum_1" *ngFor="let producto of productos">
-                <img class="img-fluid" id="imagen_tienda" [src]="calculaSrc(producto.id)">
+            <div class="col-md-4 text-center" id="colum_1" *ngFor="let producto of productos" >
+                <img class="img-fluid" id="imagen_tienda" [src]="_sanitizer.bypassSecurityTrustResourceUrl(producto.imagen_ruta)">
                 <label class="text-center " id="nombre_producto">{{producto.nombre}}</label>
                 <div class="row ">
                     <div class="col-6 text-left ">

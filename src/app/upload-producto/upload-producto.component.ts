@@ -25,11 +25,12 @@ export class UploadProductoComponent implements OnInit {
     this.producto_id = localStorage.getItem("producto");
   }
   ngAfterContentInit(): void{
-    if(this.producto_id != "0")
-      this.descargarFoto();
-    else
+    if(this.producto_id != "0"){
       this.nombre_foto  = "../assets/img/producto.png";
-
+      this.descargarFoto();
+    }else{
+      this.nombre_foto  = "../assets/img/producto.png";
+    }
   }
 /*  ngOnChanges() {
     this.descargarFoto();
@@ -52,9 +53,7 @@ export class UploadProductoComponent implements OnInit {
 
   subirFoto(producto_id: any){
     
-    if(!this.foto){
-      Swal.fire('Error: Upload', 'Debe seleccionar una foto', 'error')
-    }else{
+
       this.negocioService.subirFotoProducto(this.foto, producto_id).subscribe(
         producto => { this.producto = producto;
           this.producto_id = producto_id;
@@ -63,13 +62,15 @@ export class UploadProductoComponent implements OnInit {
         }
         
       )
-    }
+    
   }
   descargarFoto(){
     this.negocioService.descargarFotoProducto(this.producto_id).subscribe(
       foto => { this.foto_descargada = foto;
-        this.nombre_foto = this._sanitizer.bypassSecurityTrustResourceUrl('data:imagen/jpg;base64,'+foto.foto);
-        this.router.navigate(['upload']);
+        if(foto.foto != "")
+         this.nombre_foto = this._sanitizer.bypassSecurityTrustResourceUrl('data:imagen/jpg;base64,'+foto.foto);
+ 
+        //this.router.navigate(['upload']);
       }
     )
 

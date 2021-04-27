@@ -6,6 +6,7 @@ import {NegocioService} from '../../services/negocio.service';
 import {  NEGOCIO} from '../../models/tipo-negocio.json';
 import { Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Foto } from 'src/app/models/foto';
 
 @Component({
   selector: 'app-mitienda',
@@ -17,32 +18,48 @@ export class MitiendaComponent implements OnInit {
   user : any;
   username: any;
   categoria_id: any;
-  productos : Producto [];
+  productos : Producto [] ;
   negocio: Negocio = NEGOCIO;
   categorias: Categoria [];
+  foto_i: Foto [];
+  foto_name : any;
+  cont : 0;
 
-  constructor(private negocioService: NegocioService, private router: Router,private _sanitizer : DomSanitizer) { }
+  constructor(private negocioService: NegocioService, private router: Router,public _sanitizer : DomSanitizer) { }
 
   ngOnInit(): void {
     this.user = localStorage.getItem("user");
     this.username = localStorage.getItem("username");
+    
 
   }
   ngAfterContentInit(): void{
     this.obtenerNegocioById();
     this.obtenerProductos();
     this.obtenerCategorias(); 
+    
   }
+ 
+
 
   obtenerNegocioById(): void{
     this.negocioService.getNegocioById(this.user).subscribe(
       negocio => this.negocio = negocio
     )
+    
   }
+
+  
   obtenerProductos(): void{
     this.negocioService.getProductos(this.user).subscribe(
-      productos => this.productos = productos
-    )
+      productos => {
+
+        this.productos = productos
+        console.log(productos)
+      }
+    );
+    
+    
   }
   obtenerCategorias(): void{
     this.negocioService.getCategorias().subscribe(
@@ -58,14 +75,6 @@ export class MitiendaComponent implements OnInit {
     this.categoria_id=categoria_id;
     this.obtenerProductosCategoria();
 
-  }
-  calculaSrc(id: any): any{
-    this.negocioService.descargarFotoProducto(id).subscribe(
-      foto => { 
-        return this._sanitizer.bypassSecurityTrustResourceUrl('data:imagen/jpg;base64,'+foto.foto);
-      }
-    )
-   // return "../assets/img/producto.png";
   }
 
   editar(producto_id: any): void{
