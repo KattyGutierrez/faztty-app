@@ -1,32 +1,49 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, Validators} from '@angular/forms';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { Usuario} from '../models/usuario';
+import { UsuarioDatos} from '../models/usuario-datos';
+import { UsuarioService } from '../services/usuario.service';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  encapsulation: ViewEncapsulation.None,
+  styleUrls: ['./login.component.css', '../../../assets/css/styles.css']
 })
 export class LoginComponent implements OnInit {
 
-  public loginForm = this.fb.group({
-    username: ['', Validators.required],
-    password: ['', Validators.required]
-  })
-  constructor(private router: Router,  private fb: FormBuilder) { }
+
+  public usuario: Usuario = new Usuario();
+  public user: UsuarioDatos = new UsuarioDatos();
+  constructor(private router: Router,  public modal: NgbModal, private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
   }
 
-  login(){
-    if(this.loginForm.value.username=="comprador"){
-      this.router.navigate(['principal']);
-      localStorage.setItem("user", "1");
-    }else if(this.loginForm.value.username=="vendedor"){
-      this.router.navigate(['mitienda']);
-      localStorage.setItem("user", "2");
-    }else
-      this.router.navigate(['login']);
+  public login():void{
+    this.usuarioService.login(this.usuario).subscribe(
+      usuario => {
+        this.user =usuario;
+        localStorage.setItem("user",usuario.id);
+        localStorage.setItem("username",usuario.username);
+
+        if(usuario.tipo=="C"){
+          this.router.navigate(['principal/negocios']);
+        }
+        else if(usuario.tipo=="N"){
+          this.router.navigate(['mitienda/productos']);
+        }
+       });
+      
+    
+
   }
+
+  openSM(contenido){
+    this.modal.open(contenido,{size:'md', centered: true,backdropClass:'azul', windowClass:'oscuro'})
+  }
+
 
 }

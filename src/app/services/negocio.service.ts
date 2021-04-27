@@ -4,7 +4,7 @@ import { Producto } from '../models/producto';
 import {  CATEGORIAS,} from '../models/tipo-negocio.json';
 import { Categoria } from '../models/categoria';
 import {Observable, of} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
 @Injectable({
@@ -12,6 +12,7 @@ import {map} from 'rxjs/operators';
 })
 export class NegocioService {
 
+  private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
   private urlEndPoint:string = 'http://faztty-back.herokuapp.com/faztty-ms/';
 
   constructor(private http: HttpClient) { }
@@ -44,4 +45,28 @@ export class NegocioService {
     //return of(PRODUCTOS_CATEGORIA);
     return this.http.get<Producto[]>(this.urlEndPoint+'productosByCategoria/'+negocio_id+'/'+categoria_id);
   }
+
+  insertarNegocio(negocio: Negocio): Observable<Negocio>{
+    return this.http.post<Negocio>(this.urlEndPoint+'registrar/n',negocio,{headers: this.httpHeaders});
+  }
+  insertarProducto(producto: Producto, id_negocio:any): Observable<Producto>{
+    return this.http.post<Producto>(this.urlEndPoint+'nuevoProducto/'+id_negocio, producto);
+  }
+
+  getProducto(id: any): Observable <Producto>{
+
+    return this.http.get<Producto>(this.urlEndPoint+'producto/'+id);
+  }
+
+  modificarProducto(producto: Producto, id_producto:any): Observable<Producto>{
+    return this.http.post<Producto>(`${this.urlEndPoint}modificarProducto/${id_producto}`, producto);
+  }
+
+  subirFotoProducto(archivo: File, id): Observable<Producto>{
+    let formData = new FormData();
+    formData.append("archivo", archivo);
+    formData.append("id", id);
+    return this.http.post<Producto>(this.urlEndPoint+'uploadFotoProducto', formData);
+  }
+
 }

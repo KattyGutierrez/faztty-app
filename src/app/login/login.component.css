@@ -1,0 +1,10 @@
+.azul{
+    background-color: #a0a0a0;
+}
+.oscuro .modal-content{
+    background-color: white;
+    color:black;
+}
+.oscuro .close{
+    color: black
+}

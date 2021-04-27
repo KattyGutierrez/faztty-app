@@ -1,0 +1,54 @@
+<div id="div_1">
+    <div class="container" id="cont">
+        <div class="row" id="fila_1">
+            <div class="col-md-8 text-center" id="colum_1"><label class="text-left" id="nombre_producto" style="font-size: 40px;color: var(--purple);">Mi perfil:&nbsp;</label>
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <h4>Nombre:</h4>
+                    </div>
+                    <div class="col-6"><label class="col-form-label">{{negocio.nombre}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <h4>Dirección:</h4>
+                    </div>
+                    <div class="col-6"><label class="col-form-label">{{negocio.direccion}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <h4>Nombre de usuario:</h4>
+                    </div>
+                    <div class="col-6"><label class="col-form-label">{{negocio.username}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <h4 class="text-left">N° RUC:</h4>
+                    </div>
+                    <div class="col-6"><label class="col-form-label">{{negocio.ruc}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <h4 class="text-left">Tipo de Negocio:</h4>
+                    </div>
+                    <div class="col-6"><label class="col-form-label">{{negocio.tipoNegocio.nombre}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <h4 class="text-left">E - mail:</h4>
+                    </div>
+                    <div class="col-6"><label class="col-form-label">{{negocio.email}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <h4 class="text-left">Descripción:</h4>
+                    </div>
+                    <div class="col-6"><label class="col-form-label">{{negocio.tipoNegocio.descripcion}}</label></div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center" id="colum_2"><img class="rounded img-fluid" id="foto_n"></div>
+        </div>
+        <div class="row">
+            <div class="col text-right"><button class="btn btn-primary" id="bt_editar" type="button">Editar</button></div>
+        </div>
+    </div>
+</div>

@@ -10,4 +10,5 @@ export class Producto {
     imagen: any;
     negocio: Negocio;
     categoria: Categoria;
+    catid: any;
 }

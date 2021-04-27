@@ -39,4 +39,4 @@ export const TIPONEGOCIO: TipoNegocio =
       ]; */
 
       export const NEGOCIO: Negocio = 
-      { id: 0, username: '', email: '', password:'', ruc : '', nombre: '', puntuacion: 0, imagen: '', direccion: '', tipoNegocio:{ id : 0, nombre: '', descripcion: ''}};
+      { id: 0, username: '', email: '', password:'', ruc : '', nombre: '', puntuacion: 0, imagen: '', direccion: '', tipoNegocio:{ id : 0, nombre: '', descripcion: ''}, tn:0};

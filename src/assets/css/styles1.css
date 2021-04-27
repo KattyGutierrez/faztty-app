@@ -1,0 +1,190 @@
+#heather {
+  background-color: #65c4f0;
+}
+
+#user {
+  font-size: 200%;
+}
+
+#vender {
+  font-size: 150%;
+}
+
+#nombre_negocio {
+  font-weight: bolder;
+  font-size: 120%;
+}
+
+#filtro_cat {
+  margin-top: 20px;
+}
+
+#prod {
+  margin-top: 20px;
+}
+
+#bt_cat {
+  background-color: #c392f0;
+  font-size: 120%;
+}
+
+#imagen_tienda {
+  width: 300px;
+  height: 200px;
+  margin-top: 20px;
+}
+
+#nombre_producto {
+  font-size: 200%;
+  font-weight: bold;
+}
+
+#bt_editar {
+  margin-top: 20px;
+  background-color: #c392f0;
+  margin-bottom: 10px;
+}
+
+#add_product {
+  font-size: 600%;
+}
+
+#add_p_icon {
+  margin-top: 60%;
+}
+
+#colum_agregar {
+  margin-top: initial;
+  border-color: #f0c529;
+  border-style: groove;
+}
+
+#colum_1 {
+  border-color: #641FA3;
+  border-style: groove;
+  margin-top: 20px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+}
+
+#foto {
+  width: 330px;
+  height: 270px;
+  border: groove;
+  border-color: #641FA3;
+}
+
+#colum_2 {
+  margin-top: 20px;
+}
+
+#bt_editar_1 {
+  margin-top: 20px;
+  background-color: #c392f0;
+  margin-bottom: 10px;
+}
+
+#fila_1 {
+  margin-left: 10px;
+}
+
+#div_1 {
+}
+
+#cat {
+  background-color: #C392F0;
+}
+
+#menu_cat {
+  background-color: #1878A3;
+}
+
+
+#cont {
+  margin-top: 20px;
+  background-color: #D3D3D3;
+  border-radius: 10px;
+}
+
+#foto_n {
+  width: 330px;
+  height: 340px;
+  border: groove;
+  border-color: #641FA3;
+}
+
+#fila_reg_negocio {
+  margin-top: 20px;
+}
+
+#cont_rn {
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+#colum_rn {
+  margin-top: 150px;
+}
+
+#foto_rn {
+  height: 330px;
+  width: 300px;
+  border: groove;
+  border-color: #641FA3;
+}
+
+#cat_rn {
+  background-color: #C392F0;
+}
+
+#cat_menu {
+  background-color: #65C4F0;
+}
+
+#descrip {
+  margin-top: 5px;
+}
+
+#div_rn {
+  background-color: #6584;
+}
+
+#bt_editar_rn {
+  margin-bottom: 10px;
+  background-color: #65C4F0;
+}
+
+#div_rc {
+  background-color: #6584;
+}
+
+#fila_reg_cliente {
+  margin-top: 20px;
+}
+
+#colum_rc2 {
+  text-align: center!important;
+}
+
+#colum_rc {
+  margin-top: 150px;
+}
+
+#foto_rc {
+  height: 270px;
+  width: 300px;
+  border: groove;
+  border-color: #641FA3;
+}
+
+#nombre_producto_rc {
+}

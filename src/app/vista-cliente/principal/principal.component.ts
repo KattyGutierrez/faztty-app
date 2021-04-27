@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import {TipoNegocio} from '../models/tipo-negocio';
-import {Negocio} from '../models/negocio';
-import {NegocioService} from '../services/negocio.service';
-import {TipoNegocioService} from '../services/tipo-negocio.service';
+import { Component, OnInit} from '@angular/core';
+import {TipoNegocio} from '../../models/tipo-negocio';
+import {Negocio} from '../../models/negocio';
+import {NegocioService} from '../../services/negocio.service';
+import {TipoNegocioService} from '../../services/tipo-negocio.service';
 import { Router } from '@angular/router';
-import { TIPONEGOCIO} from '../models/tipo-negocio.json';
+import { TIPONEGOCIO} from '../../models/tipo-negocio.json';
 
 
 @Component({
   selector: 'app-principal',
-  templateUrl: './principal.component.html'
+  templateUrl: './principal.component.html',
+  styleUrls: ['../../../assets/css/styles.css']
 })
 export class PrincipalComponent implements OnInit {
 
-  user: any; 
+  user: any;
+  username : any
   tipoNegocio: TipoNegocio[];
   singleTipo: TipoNegocio =  TIPONEGOCIO ;
   singleTipoId: number = 1;
@@ -25,9 +27,12 @@ export class PrincipalComponent implements OnInit {
 
     }
 
-
   ngOnInit(): void {
     this.user = localStorage.getItem("user");
+    this.username = localStorage.getItem("username");
+      
+  }
+  ngAfterContentInit(): void{
     this.obtenerTipos();
     this.obtenerTipo();
     this.obtenerNegocio(); 
@@ -58,7 +63,7 @@ export class PrincipalComponent implements OnInit {
 
   ver(negocio_id: any): void{
     localStorage.setItem("negocio", negocio_id);
-    this.router.navigate(['productos']);
+    this.router.navigate(['principal/productos']);
     
   }
 

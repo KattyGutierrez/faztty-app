@@ -11,4 +11,5 @@ export class Negocio {
     imagen: any;
     direccion: any;
     tipoNegocio: TipoNegocio;
+    tn: any;
 }

@@ -59,6 +59,7 @@
 }
 
 #colum_1 {
+  margin-top: initial;
   border-color: #f0c529;
   border-style: groove;
 }

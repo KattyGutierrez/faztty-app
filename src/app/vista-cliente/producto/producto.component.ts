@@ -1,31 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { Categoria } from '../models/categoria';
-import { Negocio } from '../models/negocio';
-import {  Producto} from '../models/producto';
-import {NegocioService} from '../services/negocio.service';
-import {  NEGOCIO} from '../models/tipo-negocio.json';
+import { Categoria } from '../../models/categoria';
+import { Negocio } from '../../models/negocio';
+import {  Producto} from '../../models/producto';
+import {NegocioService} from '../../services/negocio.service';
+import {  NEGOCIO} from '../../models/tipo-negocio.json';
 
 @Component({
-  selector: 'app-mitienda',
-  templateUrl: './mitienda.component.html',
-  styleUrls: ['./mitienda.component.css']
+  selector: 'app-producto',
+  templateUrl: './producto.component.html',
+  styleUrls: ['./producto.component.css', '../../../assets/css/styles.css']
 })
-export class MitiendaComponent implements OnInit {
+export class ProductoComponent implements OnInit {
 
-  negocio_id : any = 3;
+  negocio_id : any;
   categoria_id: any;
   productos : Producto [];
-  negocio: Negocio = NEGOCIO;
-  categorias: Categoria [];
-
-  constructor(private negocioService: NegocioService) { }
+  negocio: Negocio = NEGOCIO ;
+  
+  categorias: Categoria []= [];
+  constructor(private negocioService: NegocioService) {}
 
   ngOnInit(): void {
-    localStorage.setItem("negocio", this.negocio_id);
-    console.log("negocio_id: "+this.negocio_id);
+    this.negocio_id = localStorage.getItem("negocio");
     this.obtenerNegocioById();
     this.obtenerProductos();
     this.obtenerCategorias();
+
   }
   obtenerNegocioById(): void{
     this.negocioService.getNegocioById(this.negocio_id).subscribe(
@@ -33,9 +33,12 @@ export class MitiendaComponent implements OnInit {
     )
   }
   obtenerProductos(): void{
+
+    console.log("Negociooooo: "+this.negocio_id);
     this.negocioService.getProductos(this.negocio_id).subscribe(
       productos => this.productos = productos
     )
+    console.log(this.productos);
   }
   obtenerCategorias(): void{
     this.negocioService.getCategorias().subscribe(
@@ -55,5 +58,6 @@ export class MitiendaComponent implements OnInit {
   calculaSrc(imagen: any): any{
     return '../assets/img/'+imagen;
   }
+  
 
 }

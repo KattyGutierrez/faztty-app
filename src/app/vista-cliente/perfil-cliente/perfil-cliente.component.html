@@ -1,0 +1,43 @@
+<div id="div_1">
+    <div class="container" id="cont">
+        <div class="row" id="fila_1">
+            <div class="col-md-8 text-center" id="colum_1"><label class="text-left" id="nombre_producto" style="font-size: 40px;color: var(--purple);">Mi perfil:&nbsp;</label>
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <h4>Nombre(s):</h4>
+                    </div>
+                    <div class="col-6"><label class="col-form-label">{{cliente.firstName}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <h4>Apellido(s):</h4>
+                    </div>
+                    <div class="col-6"><label class="col-form-label">{{cliente.lastName}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <h4>Nombre de usuario:</h4>
+                    </div>
+                    <div class="col-6"><label class="col-form-label">{{cliente.username}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <h4 class="text-left">N° DNI:</h4>
+                    </div>
+                    <div class="col-6"><label class="col-form-label">{{cliente.dni}}</label></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <h4 class="text-left">E - mail:</h4>
+                    </div>
+                    <div class="col-6"><label class="col-form-label">{{cliente.email}}</label></div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center" id="colum_2"><img class="rounded img-fluid" id="foto"></div>
+        </div>
+        <div class="row">
+            <div class="col text-right"><button class="btn btn-primary" id="bt_editar" type="button">Editar</button></div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
