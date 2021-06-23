@@ -5,7 +5,7 @@
         </div>
         <div class="col text-center" id="filtro_cat">
             <div class="dropdown"><button class="btn dropdown-toggle" aria-expanded="false" data-toggle="dropdown"
-                    id="bt_cat" style="background-color: #aa4466; color:white" type="button">Categoría</button>
+                    id="bt_cat" style="background-color: #aa4466; color:white; border: 2px solid rgb(119, 21, 50);" type="button">Categoría</button>
                 <div class="dropdown-menu">
                     <div *ngFor="let categoria of categorias"><a class="dropdown-item" role="button"
                             (click)="click(categoria.id)">{{categoria.nombre}}</a></div>
@@ -17,7 +17,7 @@
 <div>
     <div class="container">
         <div class="row" id="row_product">
-            <div class="col-md-4 text-center" id="colum_1"
+            <div  id="colum_1"
                 class=" card col-md-4 col-lg-3 col-xl-4 offset-lg-0 offset-sm-1 text-center"
                 *ngFor="let producto of productos">
                 <img class="card-img-top img-fluid" id="imagen_tienda"
@@ -26,34 +26,36 @@
                     <label class="card-title text-center " id="nombre_producto">{{producto.nombre}}</label>
 
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><span style="font-size: 15px;font-weight: bold;">Marca :
+                        <li class="list-group-item" style="padding-top: 0px;padding-bottom: 0px;"><span style="font-size: 15px;font-weight: bold;">Marca :
                             </span>{{producto.marca}}</li>
-                        <li class="list-group-item"><span style="font-size: 15px;font-weight: bold;">Categoría :
+                        <li class="list-group-item" style="padding-top: 0px;padding-bottom: 0px;"><span style="font-size: 15px;font-weight: bold;">Categoría :
                             </span>{{producto.categoria.nombre}}</li>
-                        <li class="list-group-item"><span style="font-size: 15px;font-weight: bold;">Precio :
+                        <li class="list-group-item" style="padding-top: 0px;padding-bottom: 0px;"><span style="font-size: 15px;font-weight: bold;">Precio :
                             </span><span style="font-size: 15px;">S/. </span>{{producto.precio}}</li>
-                        <li class="list-group-item"><span style="font-size: 15px;font-weight: bold;">Puntuacion :
+                        <li class="list-group-item" style="padding-top: 0px;padding-bottom: 0px;"><span style="font-size: 15px;font-weight: bold;">Puntuacion :
                             </span>{{producto.puntuacion}}<span style="font-size: 15px;"> puntos</span></li>
                     </ul>
 
 
-                    <div class="row">
+                    <div class="row" style="margin: 0px 0px 0px ;padding: 0px;">
                         <div class="col text-right"><button class="btn" id="bt_editar" type="button"
-                                style="background-color: rgb(88, 93, 99); color:white"><i class="fa fa-trash"
+                            (click)="eliminarProducto(producto.id)" style="background-color: rgb(88, 93, 99); color:white; border: 2px solid rgb(75, 75, 75);"><i class="fa fa-trash"
                                     aria-hidden="true"></i> Eliminar</button></div>
                         <div class="col text-left"><button class="btn" id="bt_editar" type="button"
-                                (click)="editar(producto.id)" style="background-color: #aa4466; color:white"><i
+                                (click)="editar(producto.id)" style="background-color: #aa4466; color:white; border: 2px solid rgb(119, 21, 50);"><i
                                     class="fa fa-pencil" aria-hidden="true"></i> Editar</button></div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4 text-center" id="colum_1">
+            <div class=" card col-md-4 col-lg-3 col-xl-4 offset-lg-0 offset-sm-1 text-center" id="colum_1">
+                
                 <a id="add_product"
                     [routerLink]="['/mitienda/agregarProducto']">
                     <i class="fas fa-cart-plus" id="add_p_icon" style="color: #aa4466; "></i>
                     <h2 class="text-center" style="color: var(--gray); ">Agregar Producto</h2>
                 </a>
+            
             </div>
         </div>
     </div>

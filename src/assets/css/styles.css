@@ -1,5 +1,5 @@
 #heather {
-  background-color: #65c4f0;
+  background-color: #ffdae3;
 }
 
 #user {
@@ -30,8 +30,10 @@
 
 #imagen_tienda {
   width: 300px;
-  height: 200px;
+  height: 300px;
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #nombre_producto {
@@ -59,7 +61,6 @@
 }
 
 #colum_1 {
-  margin-top: initial;
   border-color: #a8446b;
   border-width: 2px;
   border-style:solid;

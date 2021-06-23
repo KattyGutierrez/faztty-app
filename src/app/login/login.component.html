@@ -1,7 +1,7 @@
 <!--Modal-->
 <ng-template #contenido let-modal>
     <div class="modal-header">
-        <h4 class="modal-title">Bienvenido a la familia Faztty!</h4>
+        <h4 class="modal-title">Bienvenido a la familia P'acha!</h4>
         <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -17,9 +17,10 @@
     <div class="row mh-100vh">
         <div class="col-10 col-sm-8 col-md-6 col-lg-6 offset-1 offset-sm-2 offset-md-3 offset-lg-0 align-self-center d-lg-flex align-items-lg-center align-self-lg-stretch bg-white p-5 rounded rounded-lg-0 my-5 my-lg-0" id="login-block">
             <div class="m-auto w-lg-75 w-xl-50">
-                <h2 class="text-center text-muted text-info font-weight-light mb-5"><img class="img-fluid" src="../assets/img/FAZZTY%20LOGO.jpg?h=a64d923ff01fb37034293e21b99eb82b" width="250px"><br>Iniciar Sesión</h2><label class="text-secondary">Usuario</label>
+                <h2 class="text-center text-muted text-info font-weight-light mb-5"><img class="img-fluid" src="../assets/img/FAZZTY%20LOGO.jpeg?h=a64d923ff01fb37034293e21b99eb82b" width="250px"><br>Iniciar Sesión</h2>
                 <form form class="col-12" (ngSubmit)="login()">
-                    <div class="form-group"><input class="form-control" name="username" [(ngModel)]="usuario.username" type="text" required=""></div>
+                    <div class="form-group"><label class="text-secondary">Usuario</label>
+                        <input class="form-control" name="username" [(ngModel)]="usuario.username" type="text" required=""></div>
                     <div class="form-group"><label class="text-secondary">Contraseña</label>
                         <input name="password" [(ngModel)]="usuario.password" class="form-control" type="password" required=""></div><button class="btn mt-2" role="button" style="color:white;background: #a8446b;">Ingresar</button>
                 </form>

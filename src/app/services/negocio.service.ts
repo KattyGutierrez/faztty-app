@@ -75,4 +75,9 @@ export class NegocioService {
     return this.http.get<Foto>(this.urlEndPoint+'downloadFotoProducto/'+id);
   }
 
+  deleteProducto(id_producto:any): Observable<Producto>{
+    console.log(id_producto);
+    return this.http.delete<Producto>(this.urlEndPoint+'eliminarProducto/'+id_producto);
+  }
+
 }

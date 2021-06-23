@@ -6,7 +6,7 @@
         </div>
         <div class="col text-center" id="filtro_cat">
             <div class="dropdown"><button class="btn  dropdown-toggle" aria-expanded="false" data-toggle="dropdown"
-                    id="bt_cat" type="button" style="background-color: #aa4466; color:white">Categoría</button>
+                    id="bt_cat" type="button" style="background-color: #aa4466; color:white; border: 2px solid rgb(94, 1, 29);">Categoría</button>
                 <div class="dropdown-menu">
                     <div *ngFor="let categoria of categorias"><a class="dropdown-item" role="button"
                             (click)="click(categoria.id)">{{categoria.nombre}}</a></div>
@@ -26,14 +26,14 @@
                     <label class="card-title text-center" id="nombre_producto">{{producto.nombre}}</label>
 
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><span style="font-size: 15px;font-weight: bold;">Marca : </span>{{producto.marca}}</li>
-                        <li class="list-group-item"><span style="font-size: 15px;font-weight: bold;">Categoría : </span>{{producto.categoria.nombre}}</li>
-                        <li class="list-group-item"><span style="font-size: 15px;font-weight: bold;">Precio : </span><span style="font-size: 15px;">S/. </span>{{producto.precio}}</li>
-                        <li class="list-group-item"><span style="font-size: 15px;font-weight: bold;">Puntuacion : </span>{{producto.puntuacion}}<span style="font-size: 15px;"> puntos</span></li>
+                        <li class="list-group-item" style="padding-top: 0px;padding-bottom: 0px;"><span style="font-size: 15px;font-weight: bold; ">Marca : </span>{{producto.marca}}</li>
+                        <li class="list-group-item" style="padding-top: 0px;padding-bottom: 0px;"><span style="font-size: 15px;font-weight: bold;">Categoría : </span>{{producto.categoria.nombre}}</li>
+                        <li class="list-group-item" style="padding-top: 0px;padding-bottom: 0px;"><span style="font-size: 15px;font-weight: bold;">Precio : </span><span style="font-size: 15px;">S/. </span>{{producto.precio}}</li>
+                        <li class="list-group-item" style="padding-top: 0px;padding-bottom: 0px;"><span style="font-size: 15px;font-weight: bold;">Puntuacion : </span>{{producto.puntuacion}}<span style="font-size: 15px;"> puntos</span></li>
                       </ul>
 
-                      <div class="col-xl-12 text-center " style="margin: 0px 0px 8px ;padding: 20px;"><a
-                        class="btn" style="background-color: #aa4466; color:white" role="button"><i class="fa fa-cart-plus" aria-hidden="true"></i> Agregar a carrito</a>
+                      <div class="col-xl-12 text-center " style="margin: 0px 0px 8px ;padding: 12px;"><a
+                        class="btn" style="background-color: #aa4466; color:white; border: 2px solid rgb(94, 1, 29);" role="button"><i class="fa fa-cart-plus" aria-hidden="true"></i> Agregar a carrito</a>
                 </div>
                     
                 </div>

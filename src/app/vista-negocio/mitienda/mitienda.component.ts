@@ -7,6 +7,7 @@ import {  NEGOCIO} from '../../models/tipo-negocio.json';
 import { Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Foto } from 'src/app/models/foto';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-mitienda',
@@ -24,8 +25,9 @@ export class MitiendaComponent implements OnInit {
   foto_i: Foto [];
   foto_name : any;
   cont : 0;
+  val : 0;
 
-  constructor(private negocioService: NegocioService, private router: Router,public _sanitizer : DomSanitizer) { }
+  constructor(private negocioService: NegocioService, private router: Router,public _sanitizer : DomSanitizer,  public modal: NgbModal) { }
 
   ngOnInit(): void {
     this.user = localStorage.getItem("user");
@@ -81,6 +83,17 @@ export class MitiendaComponent implements OnInit {
     localStorage.setItem("producto", producto_id);
     this.router.navigate(['mitienda/modificarProducto']);
 
+  }
+
+  eliminarProducto(producto_id: any): void{
+    this.negocioService.deleteProducto(producto_id).subscribe(
+      producto => this.obtenerProductos()
+    );
+    
+  }
+
+  openSM(contenido){
+    this.modal.open(contenido,{size:'md', centered: true,backdropClass:'azul', windowClass:'oscuro'})
   }
 
 
