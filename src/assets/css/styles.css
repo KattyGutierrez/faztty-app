@@ -35,7 +35,7 @@
 }
 
 #nombre_producto {
-  font-size: 200%;
+  font-size: 130%;
   font-weight: bold;
 }
 
@@ -60,8 +60,9 @@
 
 #colum_1 {
   margin-top: initial;
-  border-color: #f0c529;
-  border-style: groove;
+  border-color: #a8446b;
+  border-width: 2px;
+  border-style:solid;
 }
 
 #colum_2 {

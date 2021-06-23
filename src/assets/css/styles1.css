@@ -1,5 +1,5 @@
 #heather {
-  background-color: #65c4f0;
+  background-color: #ffdae3;
 }
 
 #user {
@@ -160,7 +160,7 @@ body {
 
 #bt_editar_rn {
   margin-bottom: 10px;
-  background-color: #65C4F0;
+  background-color: #aa4466;
 }
 
 #div_rc {
@@ -176,14 +176,15 @@ body {
 }
 
 #colum_rc {
+  font-family: "Constantia", serif;
   margin-top: 150px;
 }
 
 #foto_rc {
-  height: 270px;
-  width: 300px;
+  height: 300px;
+  width: 400px;
   border: groove;
-  border-color: #641FA3;
+  border-color: #ffffff;
 }
 
 #nombre_producto_rc {

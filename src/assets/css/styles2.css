@@ -1,5 +1,5 @@
 #heather {
-  background-color: #65c4f0;
+  background-color: #ffdae3;
 }
 
 #user {
@@ -204,7 +204,7 @@ body {
   height: 270px;
   width: 260px;
   border: groove;
-  border-color: #641FA3;
+  border-color: #aa4466;
 }
 
 #colum_prod_nuev {
@@ -212,7 +212,10 @@ body {
 }
 
 #div_prod_nuev {
-  background-color: #6584;
+  border-style: groove;
+  border-color: black;
+  border-radius: 10px;
+  border: 3px solid;
 }
 
 #div_dat_prod {

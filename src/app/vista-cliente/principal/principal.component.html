@@ -1,7 +1,6 @@
-
 <div id="Cuerpo">
-    <div id="wrapper">
-        <div id="sidebar-wrapper" style="background: #674172;">
+
+    <!--<div id="sidebar-wrapper" style="background: #674172;">
             <div class="col-md-4">
 
                 <ul class="sidebar-nav">
@@ -11,34 +10,52 @@
                 </ul>
 
             </div>
+        </div>-->
+    <div class="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 ">
+                    <div style="padding-top: 50px;">
+                        <h1 class="text-center">{{singleTipo.nombre}}</h1>
+                    </div>
+                    <p class="text-center"><em>Apoya y forma parte de este gran cambio!</em></p>
+                </div>
+            </div>
         </div>
-        <div class="page-content-wrapper">
-            <div class="container-fluid"><button class="btn" id="menu-toggle" type="button"><i class="fa fa-bars"></i>&nbsp;Tipo de Negocio</button>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div>
-                            <h1 class="text-center">{{singleTipo.nombre}}</h1>
-                        </div>
-                        <p class="text-center"><em>Apoya y forma parte de este gran cambio!</em></p>
+        <div class="container">
+            <div class="row text-center justify-content-center" id="row_tienda" style="margin: 5px;">
+                <div class=" card border-dark bg-light col-md-4 col-lg-3 col-xl-4 offset-lg-0 text-center"
+                    *ngFor="let negocio of negocios" data-aos="zoom-in" data-aos-duration="400" id="columna_1"
+                    style="border-radius: 30px;background: #f1e7fe;margin: 10px; width: 600px; height: 500px;">
+
+
+                    <img class="card-img-top rounded img-fluid border" id="imagen_tienda_P"
+                        style="width: 500px; height: 200px;border-radius: 25px;" [src]="calculaSrc(negocio.imagen)">
+
+                    
+                    <p class="card-title text-center" id="nombre_tienda"
+                        style="margin: 0px 0px 8px;padding: 8px;font-weight: bold;">{{negocio.nombre}}</p>
+
+
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><span style="font-size: 15px; font-weight: bold;">Tipo de Negocio :
+                            </span>{{negocio.tipoNegocio.nombre}}</li>
+                        <li class="list-group-item"><span style="font-size: 15px; font-weight: bold;">Dirección :
+                            </span>{{negocio.direccion}}</li>
+                        <li class="list-group-item"><span style="font-size: 15px; font-weight: bold;">Puntuación :
+                            </span>{{negocio.puntuacion}}<span style="font-size: 15px;"> puntos
+                            </span></li>
+
+                    </ul>
+                    <div class="col-xl-12 text-center " style="margin: 0px 0px 8px ;padding: 20px;"><a class="btn    "
+                            style="background-color: #aa4466; color:white" role="button " (click)="ver(negocio.id) ">Ver Tienda</a>
                     </div>
+
                 </div>
             </div>
-            <div class="container">
-                <div class="row text-center justify-content-center" id="row_tienda" style="margin: 5px;">
-                    <div class="col-md-4 col-lg-3 col-xl-3 offset-lg-0 text-center" *ngFor="let negocio of negocios" data-aos="zoom-in" data-aos-duration="400" id="columna_1" style="border-radius: 20px;background: #f1e7fe;margin: 10px;">
-                        <img class="rounded img-fluid border" id="imagen_tienda_P" style="width: 287px;border-radius: 25px;" [src]="calculaSrc(negocio.imagen)">
-                        <label class="text-center " id="nombre_tienda " style="margin: 0px 0px 8px ;padding: 0px; ">{{negocio.nombre}}</label>
-                        <div class="row ">
-                            <div class="col "><label class="col-form-label " style="text-align: center; ">{{negocio.tipoNegocio.nombre}}</label></div>
-                            <div class="col-lg-12 "><label class="col-form-label ">{{negocio.direccion}}</label></div>
-                            <div class="col text-center "><label class="col-form-label ">{{negocio.puntuacion}}</label></div>
-                            <div class="col-xl-12 text-center "><a class="btn btn-primary " role="button " (click)="ver(negocio.id) ">Ver</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div></div>
-            <app-footer></app-footer>
         </div>
     </div>
+<app-footer></app-footer>
+
 </div>

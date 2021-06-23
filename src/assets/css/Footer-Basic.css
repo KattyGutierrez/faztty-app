@@ -59,8 +59,9 @@
 }
 
 #nombre_tienda {
-  font-size: 200%;
-  font-weight: bold;
+  
+  color: rgb(34, 16, 17);
+  font-size: 130%;
 }
 
 #imagen_tienda_P {

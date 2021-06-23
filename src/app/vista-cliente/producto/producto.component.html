@@ -1,12 +1,15 @@
 <div>
     <div class="row">
         <div class="col">
-            <h2 class="text-center" id="prod"><label id="nombre_negocio">{{negocio.nombre}}</label>:&nbsp; Productos</h2>
+            <h2 class="text-center" id="prod"><label id="nombre_negocio"
+                    style="font: Cookies;">{{negocio.nombre}}</label>:&nbsp; Productos</h2>
         </div>
         <div class="col text-center" id="filtro_cat">
-            <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-toggle="dropdown" id="bt_cat" type="button">Categoría</button>
+            <div class="dropdown"><button class="btn  dropdown-toggle" aria-expanded="false" data-toggle="dropdown"
+                    id="bt_cat" type="button" style="background-color: #aa4466; color:white">Categoría</button>
                 <div class="dropdown-menu">
-                    <div *ngFor="let categoria of categorias"><a class="dropdown-item" role="button" (click)="click(categoria.id)">{{categoria.nombre}}</a></div>
+                    <div *ngFor="let categoria of categorias"><a class="dropdown-item" role="button"
+                            (click)="click(categoria.id)">{{categoria.nombre}}</a></div>
                 </div>
             </div>
         </div>
@@ -15,33 +18,24 @@
 <div>
     <div class="container">
         <div class="row" id="row_product">
-            <div *ngFor="let producto of productos" class="col-md-4 text-center" id="colum_1">
-                <img class="img-fluid" id="imagen_tienda" [src]="_sanitizer.bypassSecurityTrustResourceUrl(producto.imagen_ruta)">
-                <label class="text-center" id="nombre_producto">{{producto.nombre}}</label>
-                <div class="row">
-                    <div class="col-6 text-left">
-                        <h4>Marca</h4>
-                    </div>
-                    <div class="col-6"><label class="col-form-label">{{producto.marca}}</label></div>
+            <div *ngFor="let producto of productos" class=" card col-md-4 col-lg-3 col-xl-4 offset-lg-0 offset-sm-1 text-center" style="height: 550px; margin-bottom: 5px;"
+                id="colum_1">
+                <img class="card-img-top img-fluid" id="imagen_tienda"
+                    [src]="_sanitizer.bypassSecurityTrustResourceUrl(producto.imagen_ruta)">
+                <div class="card-body ">
+                    <label class="card-title text-center" id="nombre_producto">{{producto.nombre}}</label>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><span style="font-size: 15px;font-weight: bold;">Marca : </span>{{producto.marca}}</li>
+                        <li class="list-group-item"><span style="font-size: 15px;font-weight: bold;">Categoría : </span>{{producto.categoria.nombre}}</li>
+                        <li class="list-group-item"><span style="font-size: 15px;font-weight: bold;">Precio : </span><span style="font-size: 15px;">S/. </span>{{producto.precio}}</li>
+                        <li class="list-group-item"><span style="font-size: 15px;font-weight: bold;">Puntuacion : </span>{{producto.puntuacion}}<span style="font-size: 15px;"> puntos</span></li>
+                      </ul>
+
+                      <div class="col-xl-12 text-center " style="margin: 0px 0px 8px ;padding: 20px;"><a
+                        class="btn" style="background-color: #aa4466; color:white" role="button"><i class="fa fa-cart-plus" aria-hidden="true"></i> Agregar a carrito</a>
                 </div>
-                <div class="row">
-                    <div class="col-6 text-left">
-                        <h4>Categoría</h4>
-                    </div>
-                    <div class="col-6"><label class="col-form-label">{{producto.categoria.nombre}}</label></div>
-                </div>
-                <div class="row">
-                    <div class="col-6 text-left">
-                        <h4>Precio</h4>
-                    </div>
-                    <div class="col-6"><label class="col-form-label">S/.&nbsp;</label>
-                        <label class="col-form-label">{{producto.precio}}</label></div>
-                </div>
-                <div class="row">
-                    <div class="col-6 text-left">
-                        <h4 class="text-left">Puntuación</h4>
-                    </div>
-                    <div class="col-6"><label class="col-form-label">{{producto.puntuacion}}</label></div>
+                    
                 </div>
             </div>
 

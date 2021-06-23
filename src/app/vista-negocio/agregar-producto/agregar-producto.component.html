@@ -1,10 +1,12 @@
-<div class="text-center" id="div_prod_nuev">
-    <div class="container" id="cont_rn">
+<div class="text-center" id="div_prod_nuev" style="padding-top: 10px;padding-bottom:27px;margin: 30px 10px;">
+    <div class="container" id="cont_rn" style="background: white">
         <form (ngSubmit)="insertarProducto()">
             <div class="row justify-content-center" id="fila_reg_producto_nuevo">
-                <div class="col-lg-7 text-center"><label class="text-left" id="nombre_producto_rc-1" style="font-size: 60px;color: var(--purple);font-family: Cookie, serif;text-decoration: underline;text-decoration-color: #65C4F0;">Producto Nuevo:&nbsp;</label>
+                <div class="col-lg-7 text-center"><label class="text-left" id="nombre_producto_rc-1" style="font-size: 60px;color: var(--purple);font-family: Cookie, serif;text-decoration: underline;text-decoration-color: #aa4466;color: rgb(34, 16, 17);">Producto Nuevo:&nbsp;</label>
                     <div class="row text-center justify-content-center" id="div_dat_prod">
-                        <div class="col-md-7 col-lg-12 text-center" id="colum_prod_nuev">
+                        <div class=" col-md-7 col-lg-12 text-center" id="colum_prod_nuev" style="margin: 5px 30px;padding:20px;">
+                            
+                            
                             <div class="row">
                                 <div class="col-6 text-left">
                                     <h4>Nombre del Producto:</h4>
@@ -28,13 +30,14 @@
                                     <h4 class="text-left">Categoría:</h4>
                                 </div>
                                 <div class="col-6">
-                                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-toggle="dropdown" id="bt_elegir" type="button" style="background: rgb(195,146,240);border-style: none;color: rgb(0,0,0);">{{cat_selected}}</button>
+                                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-toggle="dropdown" id="bt_elegir" type="button" style="background: #ffdae3;border-style: none;color: black; border: 2px solid black;">{{cat_selected}}</button>
                                         <div class="dropdown-menu">
                                             <div *ngFor="let categoria of categorias"><a class="dropdown-item" (click)="click(categoria.id, categoria.nombre)">{{categoria.nombre}}</a></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        
                         </div>
                     </div>
                 </div>
@@ -47,11 +50,11 @@
                 <upload-producto class="col-md-5 text-center" id="colum_prodNuev" style="margin: 0px;padding: 10px;"></upload-producto>
             </div>
             <div class="row">
-                <div class="col text-center" style="padding: 5px 15px;"><a [routerLink]="['/mitienda/productos']" class="btn btn-primary" id="bt_atras" style="font-size: 24px;background: rgb(0, 98, 204);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+                <div class="col text-center" style="padding: 5px 15px;"><a [routerLink]="['/mitienda/productos']" class="btn" id="bt_atras" style="font-size: 24px;background: rgb(88, 93, 99); color: white; border: 2px solid black;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
                         <path d="M11.9481 14.8285L10.5339 16.2427L6.29126 12L10.5339 7.7574L11.9481 9.17161L10.1197 11H17.6568V13H10.1197L11.9481 14.8285Z" fill="currentColor"></path>
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M23 19C23 21.2091 21.2091 23 19 23H5C2.79086 23 1 21.2091 1 19V5C1 2.79086 2.79086 1 5 1H19C21.2091 1 23 2.79086 23 5V19ZM19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21Z" fill="currentColor"></path>
                     </svg>&nbsp;Atrás</a></div>
-                <div class="col text-center" style="padding: 5px 15px;"><button class="btn btn-success" role="button" id="bt_agregar" style="font-size: 24px;border-style: none;border-top-color: rgb(255,255,255);border-right-color: rgb(255,255,255);border-bottom-color: rgb(255,255,255);border-left-color: rgb(255,255,255);">Agregar&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+                <div class="col text-center" style="padding: 5px 15px;"><button class="btn " role="button" id="bt_agregar" style="color: white;font-size: 24px;border-style: none;border-top-color: rgb(255,255,255);border-right-color: rgb(255,255,255);border-bottom-color: rgb(255,255,255);border-left-color: rgb(255,255,255);background: #aa4466; border: 2px solid black;">Agregar&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">
                         <path d="M10.2426 16.3137L6 12.071L7.41421 10.6568L10.2426 13.4853L15.8995 7.8284L17.3137 9.24262L10.2426 16.3137Z" fill="currentColor"></path>
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M1 5C1 2.79086 2.79086 1 5 1H19C21.2091 1 23 2.79086 23 5V19C23 21.2091 21.2091 23 19 23H5C2.79086 23 1 21.2091 1 19V5ZM5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z" fill="currentColor"></path>
                     </svg></button></div>

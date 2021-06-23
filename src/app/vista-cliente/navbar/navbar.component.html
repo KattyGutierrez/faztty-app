@@ -1,10 +1,27 @@
+
 <nav class="navbar navbar-light navbar-expand-md sticky-top" id="heather">
-    <div class="container-fluid"><a class="navbar-brand" [routerLink]="['/principal/negocios']"><img src="assets/img/LOGO%20HORIZONTAL.png"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container-fluid"><a class="navbar-brand" [routerLink]="['/principal/negocios']"><span  style="font: normal 80px Cookie, cursive; color: rgb(34, 16, 17);">Shop</span></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto"  style="font-size: 30px;">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Mujer<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Hombre</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">Niños</a>
+              </li>
+            </ul>
+          </div>
         <div class="collapse navbar-collapse" id="navcol-1" style="height: 70;">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item" id="user"><a class="nav-link" [routerLink]="['/principal/perfilCliente']" style="height: 70;color: #641fa3;"><i class="fa fa-user-circle" style="width: 50;height: 50;"></i></a></li>
-                <li class="nav-item" id="user"><a class="nav-link" [routerLink]="['/principal/perfilCliente']" style="height: 70;color: #641fa3;">{{username}}&nbsp;</a></li>
-                <li class="nav-item" id="user"><a class="nav-link" [routerLink]="['/login']" style="height: 70;color: #641fa3;"><i class="fa fa-sign-out" style="width: 50;height: 50;"></i></a></li>
+                <li class="nav-item" id="user"><a class="nav-link"  style="height: 70;color: rgb(34, 16, 17);"><i class="fa fa-shopping-cart" style="width: 50;height: 50;"></i></a></li>
+                <li class="nav-item" id="user"><a class="nav-link" [routerLink]="['/principal/perfilCliente']" style="height: 70;color: rgb(34, 16, 17);"><i class="fa fa-user-circle" style="width: 50;height: 50;"></i></a></li>
+                <li class="nav-item" id="user"><a class="nav-link" [routerLink]="['/principal/perfilCliente']" style="height: 70;color: rgb(34, 16, 17);">{{username}}&nbsp;</a></li>
+                <li class="nav-item" id="user"><a class="nav-link" [routerLink]="['/login']" style="height: 70;color: rgb(34, 16, 17);"><i class="fa fa-sign-out" style="width: 50;height: 50;"></i></a></li>
             </ul>
         </div>
     </div>
