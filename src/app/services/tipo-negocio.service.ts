@@ -12,7 +12,7 @@ import {map} from 'rxjs/operators';
 export class TipoNegocioService {
 
 
-  private urlEndPoint:string = 'http://faztty-back.herokuapp.com/faztty-ms/';
+  private urlEndPoint:string = 'http://pachaa.herokuapp.com/pacha-ms/';
   //private urlEndPoint:string = 'http://localhost:8010/faztty-ms/';
   constructor(private http: HttpClient) { }
 

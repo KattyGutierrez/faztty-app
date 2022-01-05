@@ -7,6 +7,10 @@ import {Observable, of} from 'rxjs';
 import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import { Foto } from '../models/foto';
+import { Venta } from '../models/venta';
+import { MercadoPagoResponse } from '../models/mercado-pago-response';
+import { MercadoPagoRequest } from '../models/mercado-pago-request';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +18,15 @@ import { Foto } from '../models/foto';
 export class NegocioService {
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
-  private urlEndPoint:string = 'http://faztty-back.herokuapp.com/faztty-ms/';
+  private httpHeadersMP = new HttpHeaders({
+    'Content-Type': 'application/json' ,
+    'Authorization': 'Bearer TEST-6901511865574527-121202-9635b29e6a5e6e8357a44d2094eb2eda-1037580273'
+    });
+  private urlEndPoint:string = 'http://pachaa.herokuapp.com/pacha-ms/';
+  private urlEndPointMP:string = 'https://api.mercadopago.com/checkout/preferences';
   //private urlEndPoint:string = 'http://localhost:8010/faztty-ms/';
   constructor(private http: HttpClient) { }
-
+  response : MercadoPagoResponse;
 
   getNegocio(id_tipo: any): Observable <Negocio []>{
 
@@ -78,6 +87,29 @@ export class NegocioService {
   deleteProducto(id_producto:any): Observable<Producto>{
     console.log(id_producto);
     return this.http.delete<Producto>(this.urlEndPoint+'eliminarProducto/'+id_producto);
+  }
+  //////////////////////////////////////////////////////////////////
+  crearPaymentMercadoPago(venta: Venta): void {
+
+    var reqMercadoPago = this.getRequestMercadoPago(venta);
+    //console.log(reqMercadoPago)
+    var obs = this.http.post<MercadoPagoRequest>(this.urlEndPointMP,reqMercadoPago,{headers: this.httpHeadersMP})
+    obs.subscribe(res => {this.response = res; console.log(this.response);});
+  }
+  getRequestMercadoPago(venta: Venta): MercadoPagoRequest{
+    //LLAMAR GET DEL BACK CON LA VENTA
+    var reqMercadoPago = new MercadoPagoRequest();
+    var id_venta=1;
+    var resMercadoPago;
+    //console.log(reqMercadoPago)
+    /*
+    return Observable.create(observer => {
+        observer.next(reqMercadoPago );
+        observer.complete();
+    });
+    */
+    this.http.get<MercadoPagoRequest>(this.urlEndPoint+'mercadoPago/1').subscribe(response=>{ console.log(response); resMercadoPago = response; });
+    return reqMercadoPago;
   }
 
 }
