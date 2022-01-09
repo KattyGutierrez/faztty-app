@@ -10,6 +10,7 @@ import { Foto } from '../models/foto';
 import { Venta } from '../models/venta';
 import { MercadoPagoResponse } from '../models/mercado-pago-response';
 import { MercadoPagoRequest } from '../models/mercado-pago-request';
+import { VentaFinal } from '../models/venta-final';
 
 
 @Injectable({
@@ -30,19 +31,16 @@ export class NegocioService {
 
   getNegocio(id_tipo: any): Observable <Negocio []>{
 
-    console.log("Tipo_id: "+id_tipo);
     return this.http.get<Negocio[]>(this.urlEndPoint+'negocioByTipo/'+id_tipo);
   }
   getNegocioById(id: any): Observable <Negocio>{
 
-
-    console.log(id);
     //return of(NEGOCIO);
     return this.http.get<Negocio>(this.urlEndPoint+'negocio/'+id);
   }
 
   getProductos(id: any): Observable <Producto []>{
-    console.log(id);
+
     //return of(PRODUCTOS);
     return this.http.get<Producto []>(this.urlEndPoint+'productosByNegocio/'+id);
   
@@ -52,7 +50,7 @@ export class NegocioService {
     return this.http.get<Categoria []>(this.urlEndPoint+'categoria');
   }
   getProductosCategoria(negocio_id: any, categoria_id:any):Observable <Producto []>{
-    console.log("Negocio id: "+negocio_id+", Categoria id: "+categoria_id);
+
     //return of(PRODUCTOS_CATEGORIA);
     return this.http.get<Producto[]>(this.urlEndPoint+'productosByCategoria/'+negocio_id+'/'+categoria_id);
   }
@@ -85,7 +83,6 @@ export class NegocioService {
   }
 
   deleteProducto(id_producto:any): Observable<Producto>{
-    console.log(id_producto);
     return this.http.delete<Producto>(this.urlEndPoint+'eliminarProducto/'+id_producto);
   }
   //////////////////////////////////////////////////////////////////
@@ -110,6 +107,15 @@ export class NegocioService {
     */
     this.http.get<MercadoPagoRequest>(this.urlEndPoint+'mercadoPago/1').subscribe(response=>{ console.log(response); resMercadoPago = response; });
     return reqMercadoPago;
+  }
+
+  registrarVenta(venta: VentaFinal): any{
+
+    console.log(venta);
+    var url = "https://sandbox.mercadopago.com.pe/checkout/v1/redirect?pref_id=1037580273-d9813ab2-efff-49e2-ac0a-6285b7ecc836"
+ 
+    return url;
+
   }
 
 }

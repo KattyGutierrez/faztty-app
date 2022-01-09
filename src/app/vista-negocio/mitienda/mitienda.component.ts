@@ -57,7 +57,6 @@ export class MitiendaComponent implements OnInit {
       productos => {
 
         this.productos = productos
-        console.log(productos)
       }
     );
     

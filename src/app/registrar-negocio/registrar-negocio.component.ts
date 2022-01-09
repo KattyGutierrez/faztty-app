@@ -38,7 +38,6 @@ export class RegistrarNegocioComponent implements OnInit {
         localStorage.setItem("user",negocio.id);
         localStorage.setItem("username",negocio.username);
         this.router.navigate(['mitienda/productos']);
-        console.log(negocio);
 
       }
       

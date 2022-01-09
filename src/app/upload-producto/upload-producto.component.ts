@@ -44,7 +44,6 @@ export class UploadProductoComponent implements OnInit {
     reader.onload = (e: any) =>{
       this.nombre_foto = this._sanitizer.bypassSecurityTrustResourceUrl(e.target.result);
     }
-    console.log(this.foto);
     if(this.foto.type.indexOf('image')<0){
       Swal.fire('Error: seleccionar imagen', 'El archivo debe ser de tipo imagen', 'error')
       this.foto = null;

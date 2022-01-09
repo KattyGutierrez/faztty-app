@@ -24,7 +24,6 @@ export class UsuarioService {
   }
 
   login(usuario: Usuario): Observable<UsuarioDatos>{
-    console.log(usuario)
     return this.http.post<UsuarioDatos>(this.urlEndPoint+'autentica',usuario)
   }
   getCliente(id:any): Observable <Cliente>{

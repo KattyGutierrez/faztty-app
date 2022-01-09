@@ -18,7 +18,6 @@ export class RegistrarClienteComponent implements OnInit {
   }
 
   public insertarCliente():void{
-    console.log("Insertando Cliente...")
     this.usuarioService.insertarCliente(this.cliente).subscribe(
       cliente => {
         //swal.fire('Nuevo cliente',`${cliente.username},${cliente.id} `,'success')

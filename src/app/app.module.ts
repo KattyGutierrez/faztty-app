@@ -25,6 +25,7 @@ import { VistaNegocioComponent } from './vista-negocio/vista-negocio.component';
 import { AgregarProductoComponent } from './vista-negocio/agregar-producto/agregar-producto.component';
 import { ModificarProductoComponent } from './vista-negocio/modificar-producto/modificar-producto.component';
 import { MercadoPagoComponent } from './mercado-pago/mercado-pago.component';
+import { CarritoComponent } from './vista-cliente/carrito/carrito.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -33,7 +34,8 @@ const routes: Routes = [
   children: [
     { path: 'negocios', component: PrincipalComponent},
     { path: 'productos', component: ProductoComponent },
-    {path: 'perfilCliente', component: PerfilClienteComponent}
+    {path: 'perfilCliente', component: PerfilClienteComponent},
+    {path: 'carrito', component: CarritoComponent}
 
   ]},
   
@@ -73,7 +75,8 @@ const routes: Routes = [
     VistaNegocioComponent,
     AgregarProductoComponent,
     ModificarProductoComponent,
-    MercadoPagoComponent
+    MercadoPagoComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,

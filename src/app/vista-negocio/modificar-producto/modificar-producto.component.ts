@@ -47,7 +47,6 @@ export class ModificarProductoComponent implements OnInit {
   }
 
   modificarProducto(): void{
-    console.log(this.producto);
     this.producto.categoria = null;
     this.producto.negocio = null;
     this.negocioService.modificarProducto(this.producto, this.producto_id).subscribe(
@@ -61,7 +60,6 @@ export class ModificarProductoComponent implements OnInit {
           timer: 2000
         })
         this.router.navigate(['mitienda/productos']);
-        console.log(producto);
         this.hijo.subirFoto(producto.id);
 
 

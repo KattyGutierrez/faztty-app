@@ -13,4 +13,6 @@ export class Producto {
     catid: any;
     imagen_blob: any;
     imagen_ruta: any;
+    cantidad: any;
+    subtotal: any;
 }

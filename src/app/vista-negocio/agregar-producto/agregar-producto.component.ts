@@ -30,7 +30,6 @@ export class AgregarProductoComponent implements OnInit {
   }
 
   public insertarProducto():void{
-    console.log("Agregando Producto ...");
     this.negocioService.insertarProducto(this.producto, this.user).subscribe(
       producto => {
         //swal.fire('Nuevo negocio',`${negocio.username}`,'success')
@@ -42,7 +41,7 @@ export class AgregarProductoComponent implements OnInit {
           timer: 2000
         })
         this.router.navigate(['mitienda/productos']);
-        console.log(producto);
+
         this.hijo.subirFoto(producto.id);
 
       }

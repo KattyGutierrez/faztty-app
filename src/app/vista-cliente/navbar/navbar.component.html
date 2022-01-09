@@ -6,10 +6,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto"  style="font-size: 30px;">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Mujer<span class="sr-only">(current)</span></a>
+                <a class="nav-link disabled" href="#">Hombre<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Hombre</a>
+                <a class="nav-link disabled" href="#">Mujer</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link disabled" href="#">Niños</a>
@@ -18,10 +18,10 @@
           </div>
         <div class="collapse navbar-collapse" id="navcol-1" style="height: 70;">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item" id="user"><a class="nav-link"  style="height: 70;color: rgb(34, 16, 17);"><i class="fa fa-shopping-cart" style="width: 50;height: 50;"></i></a></li>
+                <li class="nav-item" id="user"><a class="nav-link" [routerLink]="['/principal/carrito']" style="height: 70;color: rgb(34, 16, 17);"><i class="fa fa-shopping-cart" style="width: 50;height: 50;"></i></a></li>
                 <li class="nav-item" id="user"><a class="nav-link" [routerLink]="['/principal/perfilCliente']" style="height: 70;color: rgb(34, 16, 17);"><i class="fa fa-user-circle" style="width: 50;height: 50;"></i></a></li>
                 <li class="nav-item" id="user"><a class="nav-link" [routerLink]="['/principal/perfilCliente']" style="height: 70;color: rgb(34, 16, 17);">{{username}}&nbsp;</a></li>
-                <li class="nav-item" id="user"><a class="nav-link" [routerLink]="['/login']" style="height: 70;color: rgb(34, 16, 17);"><i class="fa fa-sign-out" style="width: 50;height: 50;"></i></a></li>
+                <li class="nav-item" id="user"><a class="nav-link" (click)="logout()" style="height: 70;color: rgb(34, 16, 17);"><i class="fa fa-sign-out" style="width: 50;height: 50;"></i></a></li>
             </ul>
         </div>
     </div>
