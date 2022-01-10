@@ -24,7 +24,7 @@ import { VistaClienteComponent } from './vista-cliente/vista-cliente.component';
 import { VistaNegocioComponent } from './vista-negocio/vista-negocio.component';
 import { AgregarProductoComponent } from './vista-negocio/agregar-producto/agregar-producto.component';
 import { ModificarProductoComponent } from './vista-negocio/modificar-producto/modificar-producto.component';
-import { MercadoPagoComponent } from './mercado-pago/mercado-pago.component';
+//import { MercadoPagoComponent } from './mercado-pago/mercado-pago.component';
 import { CarritoComponent } from './vista-cliente/carrito/carrito.component';
 
 const routes: Routes = [
@@ -49,7 +49,7 @@ const routes: Routes = [
   ]},
   {path: 'registrarCliente', component: RegistrarClienteComponent},
   {path: 'registrarNegocio', component: RegistrarNegocioComponent},
-  {path: 'mercadoPago', component: MercadoPagoComponent},
+  //{path: 'mercadoPago', component: MercadoPagoComponent},
   //{path: 'upload', component: UploadProductoComponent},
  
 
@@ -75,7 +75,7 @@ const routes: Routes = [
     VistaNegocioComponent,
     AgregarProductoComponent,
     ModificarProductoComponent,
-    MercadoPagoComponent,
+    //MercadoPagoComponent,
     CarritoComponent
   ],
   imports: [

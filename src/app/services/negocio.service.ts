@@ -27,7 +27,9 @@ export class NegocioService {
   private urlEndPointMP:string = 'https://api.mercadopago.com/checkout/preferences';
   //private urlEndPoint:string = 'http://localhost:8010/faztty-ms/';
   constructor(private http: HttpClient) { }
-  response : MercadoPagoResponse;
+  reqMercadoPago: MercadoPagoRequest= new MercadoPagoRequest();
+  resMercadoPago: MercadoPagoRequest= new MercadoPagoRequest();
+  private urlPago: string ="";
 
   getNegocio(id_tipo: any): Observable <Negocio []>{
 
@@ -85,37 +87,38 @@ export class NegocioService {
   deleteProducto(id_producto:any): Observable<Producto>{
     return this.http.delete<Producto>(this.urlEndPoint+'eliminarProducto/'+id_producto);
   }
-  //////////////////////////////////////////////////////////////////
-  crearPaymentMercadoPago(venta: Venta): void {
 
-    var reqMercadoPago = this.getRequestMercadoPago(venta);
-    //console.log(reqMercadoPago)
-    var obs = this.http.post<MercadoPagoRequest>(this.urlEndPointMP,reqMercadoPago,{headers: this.httpHeadersMP})
-    obs.subscribe(res => {this.response = res; console.log(this.response);});
+  getRequestMercadoPagofromVentaFinal(venta: VentaFinal): Observable<MercadoPagoRequest>{
+    //this.urlPago = "https://sandbox.mercadopago.com.pe/checkout/v1/redirect?pref_id=1037580273-d9813ab2-efff-49e2-ac0a-6285b7ecc836"
+    var obs1= this.http.post<MercadoPagoRequest>(this.urlEndPoint+'registrarVenta',venta)
+    console.log(venta);
+    return obs1;
   }
-  getRequestMercadoPago(venta: Venta): MercadoPagoRequest{
-    //LLAMAR GET DEL BACK CON LA VENTA
-    var reqMercadoPago = new MercadoPagoRequest();
-    var id_venta=1;
-    var resMercadoPago;
-    //console.log(reqMercadoPago)
-    /*
-    return Observable.create(observer => {
-        observer.next(reqMercadoPago );
-        observer.complete();
-    });
-    */
-    this.http.get<MercadoPagoRequest>(this.urlEndPoint+'mercadoPago/1').subscribe(response=>{ console.log(response); resMercadoPago = response; });
-    return reqMercadoPago;
+  getResponseMercadoPagofromVentaFinal(): Observable<MercadoPagoRequest>{
+    var obs = this.http.post<MercadoPagoRequest>(this.urlEndPointMP,this.reqMercadoPago,{headers: this.httpHeadersMP})
+    return obs
   }
+  setReqMercadoPago(reqMercadoPago:MercadoPagoRequest){
+    this.reqMercadoPago=reqMercadoPago;
+  }
+  setResMercadoPago(resMercadoPago:MercadoPagoRequest){
+    this.resMercadoPago=resMercadoPago;
+  }
+
+
 
   registrarVenta(venta: VentaFinal): any{
-
-    console.log(venta);
-    var url = "https://sandbox.mercadopago.com.pe/checkout/v1/redirect?pref_id=1037580273-d9813ab2-efff-49e2-ac0a-6285b7ecc836"
- 
-    return url;
-
+    this.getRequestMercadoPagofromVentaFinal(venta);
+    var i=0;
+    while(this.urlPago=="" && i <100000){
+      console.log(i)
+      i=i+1
+    }
+    console.log(this.urlPago)
+    return this.urlPago
+    //url=this.urlPago;
+    //console.log(url);
+    //return url;
   }
 
 }

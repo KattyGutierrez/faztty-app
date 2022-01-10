@@ -158,13 +158,19 @@ export class CarritoComponent implements OnInit {
     }
 
 
-    this.url = this.negocioService.registrarVenta(venta);
+    //this.url = this.negocioService.registrarVenta(venta);
+    this.negocioService.getRequestMercadoPagofromVentaFinal(venta).subscribe(responseReq=>{
+      console.log(responseReq);
+      this.negocioService.setReqMercadoPago(responseReq);
+      this.negocioService.getResponseMercadoPagofromVentaFinal().subscribe(responseRes=>{
+        this.negocioService.setResMercadoPago(responseRes);
+        this.url=responseRes.sandbox_init_point;
+        console.log(this.url);
+        this.safe_url = this._sanitizer.bypassSecurityTrustResourceUrl(this.url);
+        this.modal.open(contenido,{size:'xl', centered: true,backdropClass:'azul', windowClass:'oscuro', })
 
-    this.safe_url = this._sanitizer.bypassSecurityTrustResourceUrl(this.url);
-
-    this.modal.open(contenido,{size:'xl', centered: true,backdropClass:'azul', windowClass:'oscuro', })
-
-
+      })
+    })
 
   }
 
